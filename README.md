@@ -48,9 +48,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [ Math magicians ] <a name="about-project"></a>
+# 📖 [ Bookstore ] <a name="about-project"></a>
 
-It is  a calculator that takes two numbers and perform arithmetic operation.
+Create a bookstore
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -82,8 +82,9 @@ It is  a calculator that takes two numbers and perform arithmetic operation.
 ### Key Features <a name="key-features"></a>
 
 
-- It should be able to calculate given two numbers
-- When your press AC to reset to 0
+- Display a list of books
+- Add a book
+- REmove a selected Book
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,8 +120,8 @@ Example command:
 Clone this repository to your desired folder:
 
 
-git clone:  https://github.com/ernestkorir/maths-magician
-cd maths-magician
+git clone:  https://github.com/ernestkorir/Bookstore
+cd bookstore
 
 
 ### Install
@@ -130,7 +131,7 @@ Install this project with:
 
 
 ```sh
-  cd maths-magician
+  cd bookstore
   npm install
 ```
 
@@ -144,16 +145,11 @@ npm start
 ### Run tests
 
 To run tests, run the following command:
-Coming soon
 
-<!--
-Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+ npm test
 ```
---->
-
 ### Deployment
 
 You can deploy this project using:
@@ -183,7 +179,7 @@ Example:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **[Add-numbers]*
+- [ ] **[Add-a-book]*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
