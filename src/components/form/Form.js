@@ -70,10 +70,9 @@ const Form = () => {
           required
         >
           <option value="" disabled>Category</option>
-          <option value="Sci-fi">Sci-fi</option>
-          <option value="Action">Action</option>
-          <option value="Mystery">Mystery</option>
-          <option value="Programming">Programming</option>
+          <option value="Programming">Sci-fi</option>
+          <option value="Wild-life">Action</option>
+          <option value="Nature">Mystery</option>
           <option value="Politics">Politics</option>
         </select>
 

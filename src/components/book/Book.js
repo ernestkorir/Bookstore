@@ -1,12 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { useDispatch } from 'react-redux';
-import { removeBook } from '../../redux/books/book';
+import { getBooks, removeBook } from '../../redux/books/book';
 
-
-const Book =() =>{
+const Book = () => {
   const Books = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
@@ -19,45 +17,44 @@ const Book =() =>{
   const handleRemove = (id) => {
     dispatch(removeBook(id));
   };
+
   return (
     <>
-    {Books.length !== 0 ? (
-      Books.books.map((book) => (
-        <>
-          <div>
-            <p>{book.category}</p>
-            <h2>{book.title}</h2>
-            <p>{book.author}</p>
+      {Books.length !== 0 ? (
+        Books.books.map((book) => (
+          <>
+            <div>
+              <p>{book.category}</p>
+              <h2>{book.title}</h2>
+              <p>{book.author}</p>
 
-            <div>
-              <button type="button">Comments</button>
-              <button type="button" onClick={() => handleRemove(book.id)}>
-                Remove
-              </button>
-              <button type="button">Edit</button>
+              <div>
+                <button type="button">Comments</button>
+                <button type="button" onClick={() => handleRemove(book.id)}>
+                  Remove
+                </button>
+                <button type="button">Edit</button>
+              </div>
             </div>
-          </div>
-          <div>
-            <CircularProgressbar value={percentage} text={`${percentage}%`} />
             <div>
-              <p>{`${percentage}%`}</p>
-              <p>completed</p>
+              <CircularProgressbar value={percentage} text={`${percentage}%`} />
+              <div>
+                <p>{`${percentage}%`}</p>
+                <p>completed</p>
+              </div>
             </div>
-          </div>
-          <div className="chapter-progress">
-            <p>CURRENT CHAPTER</p>
-            <p>chapter 20</p>
-            <button type="button">UPDATE PROGRESS</button>
-          </div>
-        </>
-      ))
-    ) : (
-      <h2>No Books Available</h2>
-    )}
-  </>
+            <div className="chapter-progress">
+              <p>CURRENT CHAPTER</p>
+              <p>chapter 20</p>
+              <button type="button">UPDATE PROGRESS</button>
+            </div>
+          </>
+        ))
+      ) : (
+        <h2>No Books Available</h2>
+      )}
+    </>
   );
 };
-
-
 
 export default Book;
