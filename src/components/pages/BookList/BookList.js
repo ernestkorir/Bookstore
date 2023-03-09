@@ -4,12 +4,12 @@ import Book from '../../book/Book';
 import Form from '../../form/Form';
 
 const BookList = () => {
-const Books = useSelector((Books) => Books.bookReducer)
+  const Books = useSelector((Books) => Books.bookReducer);
 
   return (
     <>
       <ul>
-      {Books.length !== 0 ? (
+        {Books.length !== 0 ? (
           Books.map((book) => (
             <li key={book.id}>
               <Book
