@@ -2,46 +2,62 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../../redux/books/book';
 
-const Book = ({
-  title, author, completed, chapter, category,
-}) => (
-  <section>
-    <div>
-      <p>{category}</p>
-      <h2>{title}</h2>
-      <p>{author}</p>
 
-      <div>
-        <button type="button">Comments</button>
-        <button type="button">Remove</button>
-        <button type="button">Edit</button>
-      </div>
-    </div>
+const Book =() =>{
+  const Books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
 
-    <div>
-      <CircularProgressbar value={completed} text={`${completed}%`} />
-      <div>
-        <p>{`${completed}%`}</p>
-        <p>completed</p>
-      </div>
-    </div>
+  useEffect(() => {
+    dispatch(getBooks());
+  }, []);
 
-    <div className="chapter-progress">
-      <p>CURRENT CHAPTER</p>
-      <p>{chapter}</p>
-      <button type="button">UPDATE PROGRESS</button>
-    </div>
+  const percentage = Math.floor(Math.random() * 100);
 
-  </section>
-);
+  const handleRemove = (id) => {
+    dispatch(removeBook(id));
+  };
+  return (
+    <>
+    {Books.length !== 0 ? (
+      Books.books.map((book) => (
+        <>
+          <div>
+            <p>{book.category}</p>
+            <h2>{book.title}</h2>
+            <p>{book.author}</p>
 
-Book.propTypes = {
-  category: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  chapter: PropTypes.string.isRequired,
-  completed: PropTypes.number.isRequired,
+            <div>
+              <button type="button">Comments</button>
+              <button type="button" onClick={() => handleRemove(book.id)}>
+                Remove
+              </button>
+              <button type="button">Edit</button>
+            </div>
+          </div>
+          <div>
+            <CircularProgressbar value={percentage} text={`${percentage}%`} />
+            <div>
+              <p>{`${percentage}%`}</p>
+              <p>completed</p>
+            </div>
+          </div>
+          <div className="chapter-progress">
+            <p>CURRENT CHAPTER</p>
+            <p>chapter 20</p>
+            <button type="button">UPDATE PROGRESS</button>
+          </div>
+        </>
+      ))
+    ) : (
+      <h2>No Books Available</h2>
+    )}
+  </>
+  );
 };
+
+
 
 export default Book;
