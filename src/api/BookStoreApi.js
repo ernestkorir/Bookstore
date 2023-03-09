@@ -4,7 +4,7 @@ export default class BookStoreApi {
   static baseUrl =
     'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 
-  static appId = 'xMaL0gVI54MTxWnHrrmA/';
+  static appId = 'FrD4nqQpbECeZR5SlkIh/';
 
   static async getBook() {
     const res = await axios({
